@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find mower_control)/config/mower_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner"
+    pkg="controller_manager"
+    type="spawner" respawn="false"
+    output="screen" ns="/mower"
+    args="joint_state_controller
+      mobile_base_controller"
+  />
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <param name="robot_description" textfile="$(find mower_description)/urdf/mower.urdf"/>
+    <remap from="/joint_states" to="/mower/joint_states" />
+  </node>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mower_description)/rviz/mower.rviz"/>
+
+</launch>
+
