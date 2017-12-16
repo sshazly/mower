@@ -56,7 +56,7 @@ git clone https://github.com/sshazly/mower
 
 2) navigate to ../mower/
 
-3) create build devel folders catkin_create_pkg
+3) create build devel folders
 
 4) source the setup.bash file
 
@@ -83,13 +83,13 @@ Map building:
 
 1) To begin building a path, execute:
 
-$(rospack find mower_run)/run_gazebo.sh 
+run_gazebo.sh 
 
 to open the gazebo world. After opening the gazebo world zoom in to an appropriate view.
 
 2) Open a 2nd terminal (setup.bash) and run: 
 
-$(rospack find mower_run)/run_teleop.sh 
+run_teleop.sh 
 
 to bring up the controls 
 
@@ -142,7 +142,7 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRDCi5ylcphjV42Bh_Aa_Iq14gxiu5XB
 
 presentation:
 
-
+https://youtu.be/cjzOHnwRKbU
 
 
 
